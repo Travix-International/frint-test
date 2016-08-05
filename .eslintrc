@@ -1,0 +1,9 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "travix/base",
+    "travix/rules/es6",
+    "travix/react",
+    "travix/rules/best-practices",
+  ]
+}
