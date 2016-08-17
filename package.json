@@ -40,8 +40,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "frint": "^0.*",
-    "lodash": "^4.*",
+    "frint": "^0.3.1",
+    "lodash": "^4.13.1",
     "react": "^0.14.8"
   },
   "devDependencies": {
@@ -60,7 +60,8 @@
     "jsdom": "^9.4.2",
     "jsdom-global": "^2.0.0",
     "mocha": "^3.0.2",
-    "react-addons-test-utils": "^15.3.0",
+    "react-addons-test-utils": "^0.14.8",
+    "react-dom": "^0.14.8",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
     "webpack": "^1.13.1"
