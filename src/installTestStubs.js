@@ -5,7 +5,7 @@ import React from 'react';
  * Replaces frint exported functions with stubs.
  * This function needs to be called before all unit tests.
  */
-export default function createTestStubs() {
+export default function installTestStubs() {
   const frint = require('frint');
 
   // stores a copy of the original mapToProps implementation
