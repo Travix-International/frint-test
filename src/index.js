@@ -1,7 +1,7 @@
 import createComponentStub from './createComponentStub';
-import createTestStubs from './createTestStubs';
+import installTestStubs from './createTestStubs';
 
 export default {
   createComponentStub,
-  createTestStubs,
+  installTestStubs,
 }
