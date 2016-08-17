@@ -40,13 +40,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "frint": "^0.3.0",
-    "lodash": "^4.14.1",
-    "react": "^15.3.0"
+    "frint": "^0.*",
+    "lodash": "^4.*",
+    "react": "^0.14.8"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
-    "babel-core": "^6.11.4",
+    "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
     "babel-preset-travix": "^1.1.0",
     "babel-register": "^6.11.6",
@@ -57,9 +57,9 @@
     "eslint-config-travix": "^1.1.0",
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-react": "^5.2.2",
-    "jsdom": "^9.4.1",
+    "jsdom": "^9.4.2",
     "jsdom-global": "^2.0.0",
-    "mocha": "^3.0.0",
+    "mocha": "^3.0.2",
     "react-addons-test-utils": "^15.3.0",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
