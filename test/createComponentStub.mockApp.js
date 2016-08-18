@@ -42,6 +42,8 @@ describe("createComponentStub :: app", function() {
     wrapper = mount(<ComponentStub />);
   });
 
+  afterEach(() => FakeComponent.resetStubs());
+
   after(() => {
     this.cleanup()
   });
