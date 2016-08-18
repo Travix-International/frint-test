@@ -8,11 +8,12 @@ import React from 'react';
 export default function installTestStubs() {
   const frint = require('frint');
 
-  // stores a copy of the original mapToProps implementation
+  // keeps a copy of the original mapToProps implementation
   const { mapToProps } = frint;
 
   frint.mapToProps = function mapToPropsStub(opts) {
     const defaultOptions = {
+      app: () => {},
       dispatch: {},
     };
 
@@ -23,17 +24,31 @@ export default function installTestStubs() {
     };
 
     const options = Object.assign({}, defaultOptions, opts, overrides);
-    const mapToDispatch = _.clone(options.dispatch);
+    const stubsCleanUp = [];
 
     return (Component) => React.createClass({
       displayName: `Fake${Component.name}`,
       statics: {
-        stub(key, fnStub) {
+        stubMapDispatchToProps(key, fnStub) {
+          const mapToDispatch = _.clone(options.dispatch);
           options.dispatch[key] = fnStub;
+          stubsCleanUp.push(() => {
+            options.dispatch = mapToDispatch;
+          });
+        },
+        stubMapAppToProps(fnStub) {
+          const { app } = options;
+          options.app = () => fnStub(app);
+          stubsCleanUp.push(() => {
+            options.app = app;
+          });
         },
         resetStubs() {
-          options.dispatch = mapToDispatch; 
-        }
+          while (stubsCleanUp.length) {
+            const fn = stubsCleanUp.pop();
+            fn();
+          }
+        },
       },
       render() {
         const WrappedComponent = mapToProps(options)(Component);

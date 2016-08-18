@@ -5,57 +5,58 @@ import sinon from 'sinon';
 import { createComponent, mapToProps } from 'frint';
 import createComponentStub from '../src/createComponentStub';
 
-describe('createComponentStub :: services', function() {
+describe("createComponentStub :: models", function() {
   const TestComponent = createComponent({
     render() {
       const { foo } = this.props;
-      return <button onClick={ () => foo.doSomething() } />;
+      return <span>{foo.getProperty()}</span>;
     },
   });
 
   const FakeComponent = mapToProps({
-    services: {
-      foo: 'bar',
-    }
+    app: (app) => {
+      const foo = app.getModel('foo');
+      return { foo };
+    },
   })(TestComponent);
 
-  const FooService = {
-    doSomething() { },
+  const FooModel = {
+    getProperty() { return 'fake property' },
   };
 
   let sandbox;
 
   beforeEach(() => {
-    this.cleanup = require('jsdom-global');
     sandbox = sinon.sandbox.create();
-    sandbox.stub(FooService, 'doSomething');
+    sandbox.stub(FooModel, 'getProperty');
+    this.cleanup = require('jsdom-global');
   });
 
   afterEach(() => {
     FakeComponent.resetStubs();
     sandbox.restore();
-    this.cleanup(); 
+    this.cleanup()
   });
 
-  it('should be able to stub services', () => {
+  it("should be able to stub models", () => {
     const ComponentStub = createComponentStub(FakeComponent, {
-      services: {
-        bar: FooService,
+      models: {
+        foo: FooModel,
       },
     });
     const wrapper = mount(<ComponentStub />);
-    wrapper.find('button').simulate('click');
-    expect(FooService.doSomething).to.have.been.calledOnce();
+    expect(FooModel.getProperty).to.have.been.calledOnce();
   });
 
   it('should error if stubs are not provided', () => {
     expect(() => {
       const ComponentStub = createComponentStub(FakeComponent, {
-        services: {
-          bar: null,
-        },
+        models: {
+          foo: null,
+        }
       });
-      mount(<ComponentStub />);
+      const wrapper = mount(<ComponentStub />);
+      console.log(wrapper.debug());
     }).to.throw(Error);
   })
 });

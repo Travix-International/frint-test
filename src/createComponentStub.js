@@ -52,9 +52,11 @@ function stubContext(Component, context = {}) {
  */
 export default function createComponentStub(Component, opts) {
   const options = {
+    mapAppToProps: (app, fn) => fn(app),
     appOptions: {},
     dispatch: {},
     factories: {},
+    models: {},
     services: {},
     state: {},
     ...opts,
@@ -63,6 +65,25 @@ export default function createComponentStub(Component, opts) {
   const {
     app = {
       readableApps: [],
+      storeSubscriptions: [],
+      getFactory: (name) => {
+        const instance = options.factories[name];
+        if (!instance) {
+          throw new Error(
+            `Attempt to use factory '${name}' in test context, but no stubs have been provided.`
+          );
+        }
+        return instance;
+      },
+      getModel: (name) => {
+        const instance = options.models[name];
+        if (!instance) {
+          throw new Error(
+            `Attempt to use model '${name}' in test context, but no stubs have been provided.`
+          );
+        }
+        return instance;
+      },
       getService: (name) => {
         const instance = options.services[name];
         if (!instance) {
@@ -72,15 +93,6 @@ export default function createComponentStub(Component, opts) {
         }
         return instance;
       },
-      getFactory: (name) => {
-        const instance = options.factories[name];
-        if (!instance) {
-          throw new Error(
-            `Attempt to use factory '${name}' in test context, but no stubs have been provided.`
-          );
-        }
-        return instance;
-      },  
       getOption: (key) => options.appOptions[key],
     },
     store = {
@@ -90,6 +102,7 @@ export default function createComponentStub(Component, opts) {
     },
   } = options;
 
-  _.each(options.dispatch, (value, key) => Component.stub(key, value));
+  Component.stubMapAppToProps((appFn) => options.mapAppToProps(app, appFn));
+  _.each(options.dispatch, (value, key) => Component.stubMapDispatchToProps(key, value));
   return stubContext(Component, { app, store });
 }

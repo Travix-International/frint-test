@@ -32,6 +32,7 @@ describe("createComponentStub :: factories", function() {
   });
 
   afterEach(() => {
+    FakeComponent.resetStubs();
     sandbox.restore();
     this.cleanup()
   });
