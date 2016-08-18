@@ -14,10 +14,9 @@ describe("createComponentStub :: models", function() {
   });
 
   const FakeComponent = mapToProps({
-    app: (app) => {
-      const foo = app.getModel('foo');
-      return { foo };
-    },
+    models: {
+      foo: 'foo',
+    }
   })(TestComponent);
 
   const FooModel = {
