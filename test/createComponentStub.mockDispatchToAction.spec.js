@@ -6,6 +6,7 @@ import { stub } from 'sinon';
 
 import { createComponent, mapToProps } from 'frint';
 import createComponentStub from '../src/createComponentStub';
+import resetStubs from '../src/resetStubs';
 
 describe("createComponentStub :: dispatch", function() {
   const TestComponent = createComponent({
@@ -35,7 +36,7 @@ describe("createComponentStub :: dispatch", function() {
 
   after(() => this.cleanup());
 
-  afterEach(() => FakeComponent.resetStubs());
+  afterEach(() => resetStubs(FakeComponent));
 
   it("should be able to stub dispatch to action", () => {
     const wrapper = mount(<ComponentStub />);

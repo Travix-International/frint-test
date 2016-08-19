@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 
 import { createComponent, mapToProps } from 'frint';
 import createComponentStub from '../src/createComponentStub';
+import resetStubs from '../src/resetStubs';
 
 describe("createComponentStub :: app", function() {
   const TestComponent = createComponent({
@@ -42,7 +43,7 @@ describe("createComponentStub :: app", function() {
     wrapper = mount(<ComponentStub />);
   });
 
-  afterEach(() => FakeComponent.resetStubs());
+  afterEach(() => resetStubs(FakeComponent));
 
   after(() => {
     this.cleanup()

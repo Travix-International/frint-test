@@ -2,6 +2,8 @@ import _ from 'lodash';
 import { PropTypes } from 'frint';
 import React from 'react';
 
+import { ensureTestStubsInstalled } from './installTestStubs';
+
 /**
  * Creates a component wrapper that implements `getChildContext` and `childContextTypes`.
  * @param  {Component} Component  a React component class
@@ -51,6 +53,7 @@ function stubContext(Component, context = {}) {
  * @return {Component}  a testable component that uses only stubs
  */
 export default function createComponentStub(Component, opts) {
+  ensureTestStubsInstalled('createComponentStub');
   const options = {
     mapAppToProps: (app, fn) => fn(app),
     appOptions: {},

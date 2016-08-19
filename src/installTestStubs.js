@@ -1,11 +1,24 @@
 import _ from 'lodash';
 import React from 'react';
 
+let testStubsAlreadyInstalled = false;
+
+export function ensureTestStubsInstalled(calledFunctionName) {
+  if (!testStubsAlreadyInstalled) {
+    throw new Error(`Attempt to call '${calledFunctionName}' before invoking 'installTestStubs' in test set up.`);
+  }
+}
+
 /**
  * Replaces frint exported functions with stubs.
  * This function needs to be called before all unit tests.
  */
 export default function installTestStubs() {
+  if (testStubsAlreadyInstalled) {
+    console.error('The test stubs are already installed, you do not have to call `installTestStubs` function again!');
+    return;
+  }
+
   const frint = require('frint');
 
   // keeps a copy of the original mapToProps implementation
@@ -56,4 +69,6 @@ export default function installTestStubs() {
       },
     });
   };
+
+  testStubsAlreadyInstalled = true;
 }
