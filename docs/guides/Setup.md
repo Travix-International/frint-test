@@ -1,6 +1,6 @@
 # Set up frint-test
 
-Once you have [frint-test installed](/docs/installation/README.md), you are required to do some minimal set up to get frint-test to work with your test framework of choice.
+Once you have [frint-test installed](/docs/installation/README.md), you are required to do some minimal set up to get frint-test to work with Mocha.
 
 The only supported test framework at this moment is [Mocha](https://mochajs.org/), so we assume you are using Mocha already.
 
@@ -35,7 +35,7 @@ global.React = React;
 installTestStubs();
 ```
 
-In your test setup, you need to make sure that React is put in the global scope, because internally frint uses the version of React that is on the global scope and do not bring its own version of React.
+In your test setup, you need to make sure that React is put in the global scope, because internally frint uses the version of React that is on the global scope and does not bring its own version of React.
 
 Alternatively, if you already have a set up file, you only need to make sure you import and call the `installTestStubs` from 'frint-test'.
 

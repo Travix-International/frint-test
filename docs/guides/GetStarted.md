@@ -32,9 +32,9 @@ export default mapToProps({
 
 ```
 
-Since you are exporting a connected component in `MyComponent.js`, as the example above, there is no way you can tell which App your component belongs to and what is its name.  You would need to stub out its dependencies in order to test it appropriately.
+Since you are exporting a connected component in `MyComponent.js`, as the example above, there is no way you can tell which App your component belongs to and what its name is.  You would need to stub out its dependencies in order to test it appropriately.
 
-Suppose that you want to test that you component correctly show the name of your App, you would do:
+Suppose that you want to test that your component correctly shows the name of your App, you would do:
 
 ```
 import { createComponentStub } from 'frint-test';
