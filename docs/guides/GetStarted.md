@@ -9,7 +9,7 @@ You can use frint-test to test any component created with frint's [createCompone
 
 Suppose you have a component that looks like:
 
-```
+```js
 import { createComponent } from 'frint';
 
 const MyComponent = createComponent({
@@ -36,7 +36,7 @@ Since you are exporting a connected component in `MyComponent.js`, as the exampl
 
 Suppose that you want to test that your component correctly shows the name of your App, you would do:
 
-```
+```js
 import { createComponentStub } from 'frint-test';
 import MyComponent from '../src/components/MyComponent';
 

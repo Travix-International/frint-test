@@ -8,13 +8,13 @@ The only supported test framework at this moment is [Mocha](https://mochajs.org/
 
 If you still don't have Mocha installed, this is the right time to do it.  We recommend that you install Mocha locally in your project, instead of relying on it being installed globally.  If you already have mocha installed, you can skip to [Installing Test Stubs](/docs/guides/Setup.md#installing-test-stubs).
 
-```
+```bash
 $ npm install mocha --save-dev
 ```
 
 If you want to install Mocha globally:
 
-```
+```bash
 $ npm install -g mocha
 ```
 
@@ -26,7 +26,7 @@ It is necessary that frint-test loads before frint, so it can replace frint func
 
 If you don't already have a setup file that you use with mocha, create it now on `./test/setup.js`:
 
-```
+```js
 import { installTestStubs } from 'frint';
 import { React } from 'react';
 
@@ -50,19 +50,18 @@ Now you need to make sure you have a `mocha.opts` file.  In case you are startin
 
 We suggest you have test script to use with npm.  Add the following line to your `package.json` file, in the scripts session:
 
-```
+```json
 "scripts": {
   ...
   "test": "mocha --opts ./test/mocha.opts test"
 }
-
 ```
 
 ### Using jsdom and jsdom-global
 
 We assume that you are already using jsdom for testing your view components.  If not, we recommend you install them now:
 
-```
+```bash
 $ npm install jsdom jsdom-global --save-dev
 ```
 
@@ -81,7 +80,7 @@ We recommend you use airbnb's awesome [Enzyme](airbnb.io/enzyme/) framework in c
 
 To install it:
 
-```
+```bash
 $ npm install enzyme react-addons-test-utils react-dom --save-dev
 $ npm install chai-enzyme --save-dev
 ```
@@ -90,19 +89,19 @@ $ npm install chai-enzyme --save-dev
 
 We recommend you use [chai](http://chaijs.com/) as your BDD/TDD assertion library.
 
-```
+```bash
 $ npm install chai --save-dev
 ```
 
 In order to test the interaction of your view components with other components, such as frint [services](https://travix-international.github.io/frint/docs/api/createService.html), [factories](https://travix-international.github.io/frint/docs/api/createFactory.html) and [models](https://travix-international.github.io/frint/docs/api/Model.html), you will need to replace them with appropriate stubs in your unit tests.  We recommend that you use sinon and sinon-chai too.
 
-```
+```bash
 $ npm install sinon sinon-chai --save-dev
 ```
 
 Once you have installed sinon-chai you will have to chai to use sinon-chai plugin:
 
-```
+```js
 import sinonChai from 'sinon-chai';
 
 chai.use(sinonChai);
