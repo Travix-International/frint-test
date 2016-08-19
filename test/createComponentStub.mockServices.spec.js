@@ -4,6 +4,7 @@ import sinon from 'sinon';
 
 import { createComponent, mapToProps } from 'frint';
 import createComponentStub from '../src/createComponentStub';
+import resetStubs from '../src/resetStubs';
 
 describe('createComponentStub :: services', function() {
   const TestComponent = createComponent({
@@ -32,7 +33,7 @@ describe('createComponentStub :: services', function() {
   });
 
   afterEach(() => {
-    FakeComponent.resetStubs();
+    resetStubs(FakeComponent);
     sandbox.restore();
     this.cleanup(); 
   });
