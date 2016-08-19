@@ -1,4 +1,4 @@
 # Requirements
 
-* [Requirements](/docs/installation/Requirements.md)
-* [npm](/docs/installation/Npm.md)
+* [Requirements](Requirements.md)
+* [npm](Npm.md)

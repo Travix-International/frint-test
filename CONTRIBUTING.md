@@ -8,7 +8,7 @@ When merging Pull Requests on GitHub, use the [squash and merge](https://github.
 
 To publish a new release:
 
-```
+```bash
 $ git checkout master
 $ git pull origin master
 
@@ -20,6 +20,6 @@ $ git push --follow-tags
 
 Or via Makefile:
 
-```
+```bash
 $ make release VERSION=patch
 ```

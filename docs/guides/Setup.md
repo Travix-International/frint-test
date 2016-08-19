@@ -1,12 +1,12 @@
 # Set up frint-test
 
-Once you have [frint-test installed](/docs/installation/README.md), you are required to do some minimal set up to get frint-test to work with Mocha.
+Once you have [frint-test installed](../installation/README.md), you are required to do some minimal set up to get frint-test to work with Mocha.
 
 The only supported test framework at this moment is [Mocha](https://mochajs.org/), so we assume you are using Mocha already.
 
 ## Using Mocha
 
-If you still don't have Mocha installed, this is the right time to do it.  We recommend that you install Mocha locally in your project, instead of relying on it being installed globally.  If you already have mocha installed, you can skip to [Installing Test Stubs](/docs/guides/Setup.md#installing-test-stubs).
+If you still don't have Mocha installed, this is the right time to do it.  We recommend that you install Mocha locally in your project, instead of relying on it being installed globally.  If you already have mocha installed, you can skip to [Installing Test Stubs](#installing-test-stubs).
 
 ```bash
 $ npm install mocha --save-dev

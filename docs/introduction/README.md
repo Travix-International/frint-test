@@ -1,4 +1,4 @@
 # Introduction
 
-* [Motivation](/docs/introduction/Motivation.md)
-* [Frint Framework](/docs/introduction/Frint.md)
+* [Motivation](Motivation.md)
+* [Frint Framework](Frint.md)

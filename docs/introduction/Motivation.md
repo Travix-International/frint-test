@@ -2,7 +2,7 @@
 
 The package `frint-test` is built for serving our specific needs at [Travix International](http://travix.com).
 
-At Travix one of the supported Front-end frameworks is [Frint](https://travix-international.github.io/frint/). Frint offers the flexibility that we need to support the development of modular applications using Javascript.  *frint-test* supports the development of Frint by providing utility test functions that allows Frint components to be tested using [jsdom](https://www.npmjs.com/package/jsdom) or similar frameworks.
+At Travix one of the supported Front-end frameworks is [Frint](https://travix-international.github.io/frint/). Frint offers the flexibility that we need to support the development of modular applications using Javascript.  `frint-test` supports the development of Frint by providing utility test functions that allows Frint components to be tested using [jsdom](https://www.npmjs.com/package/jsdom) or similar frameworks.
 
 ## Key goals
 

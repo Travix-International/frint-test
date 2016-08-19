@@ -1,6 +1,6 @@
 # Getting Started
 
-Now that you have already [set up frint-test](/docs/guides/Setup.md), you can start writing your first unit test using frint-test.
+Now that you have already [set up frint-test](Setup.md), you can start writing your first unit test using frint-test.
 
 ## Writing your first unit test
 
