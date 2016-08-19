@@ -1,0 +1,537 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>createComponentStub | frint-test</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.4.3">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs/api/installTestStubs.html" />
+    
+    
+    <link rel="prev" href="../../docs/api/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Fri Aug 19 2016 16:29:44 GMT+0200 (CEST)">
+    
+
+<div class="book-summary">
+    <div class="book-search" role="search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/introduction/index.html">
+            
+                
+                    <a href="../../docs/introduction/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/introduction/Motivation.html">
+            
+                
+                    <a href="../../docs/introduction/Motivation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Motivation
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/introduction/Frint.html">
+            
+                
+                    <a href="../../docs/introduction/Frint.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Frint Framework
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/installation/index.html">
+            
+                
+                    <a href="../../docs/installation/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Installation
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="docs/installation/Requirements.html">
+            
+                
+                    <a href="../../docs/installation/Requirements.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Requirements
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="docs/installation/Npm.html">
+            
+                
+                    <a href="../../docs/installation/Npm.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        npm
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/guides/index.html">
+            
+                
+                    <a href="../../docs/guides/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Guides
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="docs/guides/Setup.html">
+            
+                
+                    <a href="../../docs/guides/Setup.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Set up
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="docs/guides/GetStarted.html">
+            
+                
+                    <a href="../../docs/guides/GetStarted.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Get started
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="docs/api/index.html">
+            
+                
+                    <a href="../../docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        API Reference
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="4.1" data-path="docs/api/createComponentStub.html">
+            
+                
+                    <a href="../../docs/api/createComponentStub.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        createComponentStub
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="docs/api/installTestStubs.html">
+            
+                
+                    <a href="../../docs/api/installTestStubs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        installTestStubs
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="docs/api/resetStubs.html">
+            
+                
+                    <a href="../../docs/api/resetStubs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        resetStubs
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="CONTRIBUTING.html">
+            
+                
+                    <a href="../../CONTRIBUTING.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Contributing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="CHANGELOG.html">
+            
+                
+                    <a href="../../CHANGELOG.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Change Log
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >frint-test</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <a id="edit-link" href="https://github.com/Travix-International/frint-test/tree/master/docs/api/createComponentStub.md" class="btn fa fa-edit pull-left">&#xA0;&#xA0;Edit This Page</a><h1 id="createcomponentstub-component-options"><a name="createcomponentstub-component-options" class="plugin-anchor" href="#createcomponentstub-component-options"><span class="fa fa-link"></span></a>createComponentStub(Component, [options])</h1>
+<p>Creates a testable component that can be safely rendered using jsdom.  <code>createComponentStub</code> allows you to replace dependencies provided by your application with your own test stubs.</p>
+<h2 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h2>
+<ol>
+<li><p><code>Component</code> (<a href="https://travix-international.github.io/frint/docs/api/createComponent.html" target="_blank">Component</a>): A frint component that you want to test</p>
+</li>
+<li><p><code>[options]</code> (Object): stub options</p>
+</li>
+<li><p><code>[options.app]</code> (Object|Function): application stub.  If you provide this options, you will have to create your own App stub and frint-test will ignore these options: <code>appOptions</code>, <code>factories</code>, <code>models</code> and <code>services</code></p>
+</li>
+<li><p><code>[options.appOptions]</code> (Object): application options stubs. frint-test will configure the App stub to return values from this object when requested via <a href="https://travix-international.github.io/frint/docs/api/App.html#getoption-optionname" target="_blank">getOption</a> method, i.e. <code>app.getOption(name)</code>, whereas the name of the option must match a value contained in <code>options.appOptions</code>.  An attempt to call <code>app.getOption</code> in your unit tests passing a non-mapped <code>appOption</code> will result in an error thrown by the App stub.</p>
+</li>
+<li><p><code>[options.factories]</code> (Object): factories stubs.  frint-test will configure the App stub to return factories stubs from this object when required via <a href="https://travix-international.github.io/frint/docs/api/App.html#getfactory-name" target="_blank">getFactory</a> method, i.e. <code>app.getFactory(name)</code>, whereas the name of the factory must match a stub contained in <code>options.factories</code>.  An attempt to call <code>app.getFactory</code> in your unit tests passing a non-mapped <code>factory</code> will result in an error thrown by the App stub.</p>
+</li>
+<li><p><code>[options.mapAppToProps]</code> (Function): a function that replaces <code>app</code> function provided to <a href="https://travix-international.github.io/frint/docs/api/mapToProps.html#app" target="_blank">mapToProps</a>.  This function receives two arguments: the App stub and a the original mapToProps function.  Like the original mapAppToProps, this function is expected to return an Object containing values that will be inject in your component via props. If you call the function provided as the last argument, the actual function is called.</p>
+</li>
+<li><p><code>[options.models]</code> (Object): models stubs.  frint-test will configure the App stub to return model instances provided in this object when required via <a href="https://travix-international.github.io/frint/docs/api/App.html#getmodel-name" target="_blank">getModel</a> method, i.e. <code>app.getModel(name)</code>, whereas the name of the model must match a model contained in <code>options.models</code>. An attempt to call <code>app.getModel</code> in your unit tests passing a non-mapped <code>model</code> will result in an error throw by the App stub.</p>
+</li>
+<li><p><code>[options.services]</code> (Object): service stubs.  frint-test will configure the App stub to return services stubs from this object when required via <a href="https://travix-international.github.io/frint/docs/api/App.html#getservice-name" target="_blank">getService</a> method, i.e. <code>app.getService(name)</code>, whereas the name of the service must match a stub contained in <code>options.services</code>.  An attempt to call <code>app.getService</code> in your unit tests passing a non-mapped <code>service</code> will result in an error thrown by the App stub.</p>
+</li>
+<li><p><code>[options.state]</code> (any): state stub.  The state of your component before it is mounted.</p>
+</li>
+<li><p><code>[options.store]</code> (Object|Function): store stub.  If you provide your own store stub, frint-test will ignore the parameter <code>options.state</code>.</p>
+</li>
+</ol>
+<h2 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h2>
+<p>(<a href="https://travix-international.github.io/frint/docs/api/createComponent.html" target="_blank">Component</a>): A testable frint component</p>
+<h2 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h2>
+<pre><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createComponentStub <span class="token punctuation">}</span> from <span class="token string">&apos;frint-test&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> MyComponent from <span class="token string">&apos;../src/components/MyComponent&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> sinon from <span class="token string">&apos;sinon&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> ComponentStub <span class="token operator">=</span> <span class="token function">createComponentStub</span><span class="token punctuation">(</span>MyComponent<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  appOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    appName<span class="token punctuation">:</span> <span class="token string">&apos;Fake app name&apos;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  factories<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    myFactory<span class="token punctuation">:</span> sinon<span class="token punctuation">.</span><span class="token function">stub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mapAppToProps</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> invoke<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  models<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    configuration<span class="token punctuation">:</span> sinon<span class="token punctuation">.</span><span class="token function">stub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  services<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    shoppingCart<span class="token punctuation">:</span> sinon<span class="token punctuation">.</span><span class="token function">stub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    counter<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="related-functions"><a name="related-functions" class="plugin-anchor" href="#related-functions"><span class="fa fa-link"></span></a>Related functions</h2>
+<ul>
+<li><a href="resetStubs.html">resetStubs</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/api/index.html" class="navigation navigation-prev " aria-label="Previous page: API Reference"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs/api/installTestStubs.html" class="navigation navigation-next " aria-label="Next page: installTestStubs"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-collapsible-menu/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/Travix-International/frint-test/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/Travix-International/frint-test/"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
