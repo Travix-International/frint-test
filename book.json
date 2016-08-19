@@ -1,0 +1,23 @@
+{
+  "gitbook": "2.x.x",
+  "structure": {
+    "summary": "docs/README.md"
+  },
+  "plugins": [
+    "edit-link",
+    "prism",
+    "-highlight",
+    "github",
+    "anchors",
+    "collapsible-menu"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/Travix-International/frint-test/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/Travix-International/frint-test/"
+    }
+  }
+}
