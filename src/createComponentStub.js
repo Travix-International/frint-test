@@ -46,6 +46,7 @@ function stubContext(Component, context = {}) {
  * @param  {Object}     [opts.appOptions]   app options stubs
  * @param  {Object}     [opts.dispatch]     dispatch to action stubs
  * @param  {Object}     [opts.factories]    factories stubs
+ * @param  {Object}     [opts.models]       models stubs
  * @param  {Object}     [opts.services]     services stubs
  * @param  {Object}     [opts.state]        state passed to mapStateToProps
  * @param  {Object}     [opts.app]          app stub
