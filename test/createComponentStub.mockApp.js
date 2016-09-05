@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-
 import { createComponent, mapToProps } from 'frint';
+
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
-describe("createComponentStub :: app", function() {
+describe('createComponentStub :: app', function () {
   const TestComponent = createComponent({
     render() {
       return (
@@ -25,13 +25,13 @@ describe("createComponentStub :: app", function() {
     state: (state) => {
       const { counter } = state;
       return { counter };
-    }
+    },
   })(TestComponent);
 
   let wrapper;
 
   before(() => {
-    this.cleanup = require('jsdom-global');
+    this.cleanup = require('jsdom-global'); // eslint-disable-line global-require
     const ComponentStub = createComponentStub(FakeComponent, {
       appOptions: {
         message: 'foo',
@@ -46,15 +46,15 @@ describe("createComponentStub :: app", function() {
   afterEach(() => resetStubs(FakeComponent));
 
   after(() => {
-    this.cleanup()
+    this.cleanup();
   });
 
-  it("should be able to stub app options", () => {
+  it('should be able to stub app options', () => {
     expect(wrapper.containsMatchingElement(<span>foo</span>)).to.be.true();
   });
 
   it('should be able to stub store state', () => {
     const counter = wrapper.find('.counter');
-    expect(counter.text()).to.be.equal("1");
+    expect(counter.text()).to.be.equal('1');
   });
 });

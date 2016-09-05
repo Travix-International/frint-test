@@ -1,16 +1,16 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-
 import { createComponent, mapToProps } from 'frint';
+
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
-describe("createComponentStub :: factories", function() {
+describe('createComponentStub :: factories', function () {
   const TestComponent = createComponent({
     render() {
       const { foo } = this.props;
-      return <button onClick={ () => foo.doSomething() } />;
+      return <button onClick={() => foo.doSomething()} />;
     },
   });
 
@@ -29,20 +29,20 @@ describe("createComponentStub :: factories", function() {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
     sandbox.stub(FooFactory, 'doSomething');
-    this.cleanup = require('jsdom-global');
+    this.cleanup = require('jsdom-global'); // eslint-disable-line global-require
   });
 
   afterEach(() => {
     resetStubs(FakeComponent);
     sandbox.restore();
-    this.cleanup()
+    this.cleanup();
   });
 
-  it("should be able to stub factories", () => {
+  it('should be able to stub factories', () => {
     const ComponentStub = createComponentStub(FakeComponent, {
       factories: {
         bar: FooFactory,
-      }
+      },
     });
     const wrapper = mount(<ComponentStub />);
     wrapper.find('button').simulate('click');
@@ -54,9 +54,9 @@ describe("createComponentStub :: factories", function() {
       const ComponentStub = createComponentStub(FakeComponent, {
         factories: {
           bar: null,
-        }
+        },
       });
       mount(<ComponentStub />);
-    }).to.throw(Error); 
-  })
+    }).to.throw(Error);
+  });
 });

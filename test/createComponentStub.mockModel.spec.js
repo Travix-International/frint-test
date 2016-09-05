@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-
 import { createComponent, mapToProps } from 'frint';
+
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
-describe("createComponentStub :: models", function() {
+describe('createComponentStub :: models', function () {
   const TestComponent = createComponent({
     render() {
       const { foo } = this.props;
@@ -17,11 +17,11 @@ describe("createComponentStub :: models", function() {
   const FakeComponent = mapToProps({
     models: {
       foo: 'foo',
-    }
+    },
   })(TestComponent);
 
   const FooModel = {
-    getProperty() { return 'fake property' },
+    getProperty() { return 'fake property'; },
   };
 
   let sandbox;
@@ -29,22 +29,22 @@ describe("createComponentStub :: models", function() {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
     sandbox.stub(FooModel, 'getProperty');
-    this.cleanup = require('jsdom-global');
+    this.cleanup = require('jsdom-global'); // eslint-disable-line global-require
   });
 
   afterEach(() => {
     resetStubs(FakeComponent);
     sandbox.restore();
-    this.cleanup()
+    this.cleanup();
   });
 
-  it("should be able to stub models", () => {
+  it('should be able to stub models', () => {
     const ComponentStub = createComponentStub(FakeComponent, {
       models: {
         foo: FooModel,
       },
     });
-    const wrapper = mount(<ComponentStub />);
+    mount(<ComponentStub />);
     expect(FooModel.getProperty).to.have.been.calledOnce();
   });
 
@@ -53,10 +53,9 @@ describe("createComponentStub :: models", function() {
       const ComponentStub = createComponentStub(FakeComponent, {
         models: {
           foo: null,
-        }
+        },
       });
-      const wrapper = mount(<ComponentStub />);
-      console.log(wrapper.debug());
+      mount(<ComponentStub />);
     }).to.throw(Error);
-  })
+  });
 });

@@ -5,7 +5,9 @@ let testStubsAlreadyInstalled = false;
 
 export function ensureTestStubsInstalled(calledFunctionName) {
   if (!testStubsAlreadyInstalled) {
-    throw new Error(`Attempt to call '${calledFunctionName}' before invoking 'installTestStubs' in test set up.`);
+    throw new Error(
+      `Attempt to call '${calledFunctionName}' before invoking 'installTestStubs' in test set up.`
+    );
   }
 }
 
@@ -15,11 +17,12 @@ export function ensureTestStubsInstalled(calledFunctionName) {
  */
 export default function installTestStubs() {
   if (testStubsAlreadyInstalled) {
+    // eslint-disable-next-line no-console, max-len
     console.error('The test stubs are already installed, you do not have to call `installTestStubs` function again!');
     return;
   }
 
-  const frint = require('frint');
+  const frint = require('frint'); // eslint-disable-line global-require
 
   // keeps a copy of the original mapToProps implementation
   const { mapToProps } = frint;
