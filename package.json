@@ -1,6 +1,6 @@
 {
   "name": "frint-test",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Test utility functions to use with Frint",
   "main": "./lib/index.js",
   "scripts": {
