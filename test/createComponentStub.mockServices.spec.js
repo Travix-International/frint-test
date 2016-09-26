@@ -1,23 +1,23 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-
 import { createComponent, mapToProps } from 'frint';
+
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
-describe('createComponentStub :: services', function() {
+describe('createComponentStub :: services', function () {
   const TestComponent = createComponent({
     render() {
       const { foo } = this.props;
-      return <button onClick={ () => foo.doSomething() } />;
+      return <button onClick={() => foo.doSomething()} />;
     },
   });
 
   const FakeComponent = mapToProps({
     services: {
       foo: 'bar',
-    }
+    },
   })(TestComponent);
 
   const FooService = {
@@ -27,7 +27,7 @@ describe('createComponentStub :: services', function() {
   let sandbox;
 
   beforeEach(() => {
-    this.cleanup = require('jsdom-global');
+    this.cleanup = require('jsdom-global'); // eslint-disable-line global-require
     sandbox = sinon.sandbox.create();
     sandbox.stub(FooService, 'doSomething');
   });
@@ -35,7 +35,7 @@ describe('createComponentStub :: services', function() {
   afterEach(() => {
     resetStubs(FakeComponent);
     sandbox.restore();
-    this.cleanup(); 
+    this.cleanup();
   });
 
   it('should be able to stub services', () => {
@@ -58,5 +58,5 @@ describe('createComponentStub :: services', function() {
       });
       mount(<ComponentStub />);
     }).to.throw(Error);
-  })
+  });
 });

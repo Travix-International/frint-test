@@ -18,6 +18,12 @@ function stubContext(Component, context = {}) {
   };
 
   const ContextWrapper = React.createClass({
+    propTypes: {
+      children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+      ]).isRequired,
+    },
     displayName: `${Component.displayName}Stub`,
     render() {
       return React.Children.only(this.props.children);
@@ -102,7 +108,7 @@ export default function createComponentStub(Component, opts) {
     store = {
       getState() { return options.state; },
       dispatch: _.noop,
-      subscribe() { return _.noop; }
+      subscribe() { return _.noop; },
     },
   } = options;
 

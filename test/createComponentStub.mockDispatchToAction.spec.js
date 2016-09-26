@@ -1,18 +1,17 @@
 import _ from 'lodash';
-
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { stub } from 'sinon';
-
 import { createComponent, mapToProps } from 'frint';
+
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
-describe("createComponentStub :: dispatch", function() {
+describe('createComponentStub :: dispatch', function () {
   const TestComponent = createComponent({
     render() {
       return <button onClick={this.props.handleButtonClicked} />;
-    }
+    },
   });
 
   const FakeComponent = mapToProps({
@@ -25,12 +24,12 @@ describe("createComponentStub :: dispatch", function() {
   let handleButtonClicked;
 
   before(() => {
-    this.cleanup = require('jsdom-global');
+    this.cleanup = require('jsdom-global'); // eslint-disable-line global-require
     handleButtonClicked = stub();
     ComponentStub = createComponentStub(FakeComponent, {
       dispatch: {
-        handleButtonClicked
-      }
+        handleButtonClicked,
+      },
     });
   });
 
@@ -38,7 +37,7 @@ describe("createComponentStub :: dispatch", function() {
 
   afterEach(() => resetStubs(FakeComponent));
 
-  it("should be able to stub dispatch to action", () => {
+  it('should be able to stub dispatch to action', () => {
     const wrapper = mount(<ComponentStub />);
     wrapper.find('button').simulate('click');
     expect(handleButtonClicked).to.have.been.calledOnce();

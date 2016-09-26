@@ -1,11 +1,10 @@
 import { expect } from 'chai';
+import { stub } from 'sinon';
 import { createComponent, mapToProps } from 'frint';
-import sinon from 'sinon';
 
-import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
-describe('resetStubs', function() {
+describe('resetStubs', function () { // eslint-disable-line prefer-arrow-callback
   const INVALID_COMPONENTS = [
     { invalidComponent: null, description: 'null' },
     { invalidComponent: undefined, description: 'undefined' },
@@ -17,13 +16,13 @@ describe('resetStubs', function() {
     it(`should error if Component is not a valid frint component: '${description}'`, () => {
       expect(() => {
         resetStubs(invalidComponent);
-      }).to.throw(`Invalid argument: 'Component'`);
+      }).to.throw('Invalid argument: "Component"');
     });
   });
 
   it('should error if Component is a pure react component', () => {
     const ReactComponent = React.createClass({
-      render() {},
+      render() { return undefined; },
     });
     expect(() => {
       resetStubs(ReactComponent);
@@ -35,7 +34,7 @@ describe('resetStubs', function() {
       render() {},
     });
     const ConnectedComponent = mapToProps({})(FrintComponent);
-    sinon.stub(ConnectedComponent, 'resetStubs');
+    stub(ConnectedComponent, 'resetStubs');
     resetStubs(ConnectedComponent);
     expect(ConnectedComponent.resetStubs).to.have.been.calledOnce();
   });

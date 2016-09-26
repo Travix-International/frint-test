@@ -4,6 +4,7 @@ node_js:
   - 'stable'
 
 scripts:
+  - 'npm run lint'
   - 'npm test'
 
 notifications:
