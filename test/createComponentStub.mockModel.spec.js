@@ -52,7 +52,7 @@ describe('createComponentStub :: models', function () {
     expect(() => {
       const ComponentStub = createComponentStub(FakeComponent, {
         models: {
-          foo: null,
+          foo_is_missing: null,
         },
       });
       mount(<ComponentStub />);
