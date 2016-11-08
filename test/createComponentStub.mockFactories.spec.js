@@ -53,7 +53,7 @@ describe('createComponentStub :: factories', function () {
     expect(() => {
       const ComponentStub = createComponentStub(FakeComponent, {
         factories: {
-          bar: null,
+          bar_is_missing: null,
         },
       });
       mount(<ComponentStub />);

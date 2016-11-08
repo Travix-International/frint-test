@@ -1,7 +1,6 @@
 import _ from 'lodash';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { stub } from 'sinon';
+import { mock } from 'sinon';
 import { createComponent, mapToProps } from 'frint';
 
 import createComponentStub from '../src/createComponentStub';
@@ -25,7 +24,8 @@ describe('createComponentStub :: dispatch', function () {
 
   before(() => {
     this.cleanup = require('jsdom-global'); // eslint-disable-line global-require
-    handleButtonClicked = stub();
+    handleButtonClicked = mock().once().returns({ type: 'DOES_NOT_MATTER' });
+
     ComponentStub = createComponentStub(FakeComponent, {
       dispatch: {
         handleButtonClicked,
@@ -40,6 +40,6 @@ describe('createComponentStub :: dispatch', function () {
   it('should be able to stub dispatch to action', () => {
     const wrapper = mount(<ComponentStub />);
     wrapper.find('button').simulate('click');
-    expect(handleButtonClicked).to.have.been.calledOnce();
+    handleButtonClicked.verify();
   });
 });

@@ -53,7 +53,7 @@ describe('createComponentStub :: services', function () {
     expect(() => {
       const ComponentStub = createComponentStub(FakeComponent, {
         services: {
-          bar: null,
+          bar_is_missing: null,
         },
       });
       mount(<ComponentStub />);

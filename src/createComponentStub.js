@@ -1,48 +1,8 @@
 import _ from 'lodash';
-import { PropTypes } from 'frint';
+import { createApp } from 'frint';
 import React from 'react';
 
 import { ensureTestStubsInstalled } from './installTestStubs';
-
-/**
- * Creates a component wrapper that implements `getChildContext` and `childContextTypes`.
- * @param  {Component} Component  a React component class
- * @param  {Object}    context    the context stub
- * @return {Component} a component wrapper that provides a context stub
- */
-function stubContext(Component, context = {}) {
-  const childContextTypes = _.mapValues(context, () => PropTypes.any);
-  const childContextMixin = {
-    childContextTypes,
-    getChildContext: () => context,
-  };
-
-  const ContextWrapper = React.createClass({
-    propTypes: {
-      children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-      ]).isRequired,
-    },
-    displayName: `${Component.displayName}Stub`,
-    render() {
-      return React.Children.only(this.props.children);
-    },
-    ...childContextMixin,
-  });
-
-  return React.createClass({
-    displayName: `${Component.displayName}StubWrapper`,
-    render() {
-      return (
-        <ContextWrapper>
-          <Component {...this.props} />
-        </ContextWrapper>
-      );
-    },
-    ...childContextMixin,
-  });
-}
 
 /**
  * Create a component stub for frint components so they can be mounted
@@ -66,53 +26,92 @@ export default function createComponentStub(Component, opts) {
     appOptions: {},
     dispatch: {},
     factories: {},
+    modelAttributes: {},
     models: {},
     services: {},
     state: {},
     ...opts,
   };
 
-  const {
-    app = {
-      readableApps: [],
-      storeSubscriptions: [],
-      getFactory: (name) => {
-        const instance = options.factories[name];
-        if (!instance) {
+  const createDefaultFakeApp = () => {
+    const fakeAppOptions = {
+      appId: 'fake_app',
+      component: Component,
+      enableLogger: false,
+      ...options.appOptions,
+      initialState: options.state,
+      modelAttributes: options.modelAttributes,
+      ...(['factories', 'models', 'services'].reduce((mergeOptions, key) => {
+        return {
+          ...mergeOptions,
+          [key]: _.mapValues(options[key], (stub) => {
+            return function FakeStubClass() { return stub; };
+          }),
+        };
+      }, {})),
+    };
+
+    const FakeApp = createApp(fakeAppOptions);
+
+    class TestApp extends FakeApp {
+      getFactory(name) {
+        if (!{}.hasOwnProperty.call(this.options.factories, name)) {
           throw new Error(
             `Attempt to use factory '${name}' in test context, but no stubs have been provided.`
           );
         }
-        return instance;
-      },
-      getModel: (name) => {
-        const instance = options.models[name];
-        if (!instance) {
+        return super.getFactory(name);
+      }
+
+      getModel(name) {
+        if (!{}.hasOwnProperty.call(this.options.models, name)) {
           throw new Error(
             `Attempt to use model '${name}' in test context, but no stubs have been provided.`
           );
         }
-        return instance;
-      },
-      getService: (name) => {
-        const instance = options.services[name];
-        if (!instance) {
+        return super.getModel(name);
+      }
+
+      getService(name) {
+        if (!{}.hasOwnProperty.call(this.options.services, name)) {
           throw new Error(
-            `Attempt to use service '${name}' in test context, but no stubs have been provided.`
+            `Attempt to use factory '${name}' in test context, but no stubs have been provided.`
           );
         }
-        return instance;
-      },
-      getOption: (key) => options.appOptions[key],
-    },
-    store = {
-      getState() { return options.state; },
-      dispatch: _.noop,
-      subscribe() { return _.noop; },
-    },
+        return super.getService(name);
+      }
+    }
+
+    return new TestApp();
+  };
+
+  const {
+    app = createDefaultFakeApp(),
+    mapAppToProps,
   } = options;
 
-  Component.stubMapAppToProps((appFn) => options.mapAppToProps(app, appFn));
+  Component.stubMapAppToProps((appFn) => mapAppToProps(app, appFn));
   _.each(options.dispatch, (value, key) => Component.stubMapDispatchToProps(key, value));
-  return stubContext(Component, { app, store });
+
+  const AppComponent = app.render();
+
+  const WrapperComponent = React.createClass({
+    componentWillMount() {
+      app.beforeMount();
+    },
+
+    componentDidMount() {
+      app.afterMount();
+    },
+
+    componentWillUnmount() {
+      app.beforeUnmount();
+    },
+
+    render() {
+      return <AppComponent />;
+    },
+  });
+
+  return WrapperComponent;
 }
