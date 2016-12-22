@@ -90,7 +90,7 @@ export default function createComponentStub(Component, opts) {
     mapAppToProps,
   } = options;
 
-  Component.stubMapAppToProps((appFn) => mapAppToProps(app, appFn));
+  Component.stubMapAppToProps(appFn => mapAppToProps(app, appFn));
   _.each(options.dispatch, (value, key) => Component.stubMapDispatchToProps(key, value));
 
   const AppComponent = app.render();
