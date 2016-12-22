@@ -42,7 +42,7 @@ export default function installTestStubs() {
     const options = Object.assign({}, defaultOptions, opts, overrides);
     const stubsCleanUp = [];
 
-    return (Component) => React.createClass({
+    return Component => React.createClass({
       displayName: `Fake${Component.name}`,
       statics: {
         stubMapDispatchToProps(key, fnStub) {
