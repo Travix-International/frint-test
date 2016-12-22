@@ -9,7 +9,7 @@ describe('resetStubs', function () { // eslint-disable-line prefer-arrow-callbac
     { invalidComponent: null, description: 'null' },
     { invalidComponent: undefined, description: 'undefined' },
     { invalidComponent: {}, description: 'plain object' },
-    { invalidComponent: <div></div>, description: 'react element' },
+    { invalidComponent: <div/>, description: 'react element' },
   ];
 
   INVALID_COMPONENTS.forEach(({ invalidComponent, description }) => {
