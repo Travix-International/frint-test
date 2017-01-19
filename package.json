@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "frint": "^0.4.1",
+    "frint": "^0.13.0",
     "lodash": "^4.13.1",
     "react": "^0.14.8"
   },
@@ -63,7 +63,6 @@
     "eslint-config-travix": "^2.3.1",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-react": "^6.4.1",
-    "frint": "^0.4.1",
     "gitbook-cli": "^2.3.0",
     "jsdom": "^9.4.2",
     "jsdom-global": "^2.0.0",

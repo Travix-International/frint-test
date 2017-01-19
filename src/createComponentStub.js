@@ -82,7 +82,7 @@ export default function createComponentStub(Component, opts) {
       }
     }
 
-    return new TestApp();
+    return new TestApp({ name: 'TestApp' });
   };
 
   const {
