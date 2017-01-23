@@ -66,7 +66,8 @@ describe('createComponentStub :: app', function () {
   });
 
   it('should be able to pass properties directly from wrapper (like prop="true")', () => {
-    const component = wrapper.find('.extra-component');
-    expect(component.text()).to.be.equal('Hello world!');
+    const component = wrapper.find(TestComponent);
+    expect(component.props().componentBoolProp).to.equal(true);
+    expect(component.props().componentStrProp).to.equal('Hello world!');
   });
 });
