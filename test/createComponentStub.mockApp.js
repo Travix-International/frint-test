@@ -1,12 +1,17 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { createComponent, mapToProps } from 'frint';
+import { createComponent, mapToProps, PropTypes } from 'frint';
 
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
 describe('createComponentStub :: app', function () {
   const TestComponent = createComponent({
+    propTypes: {
+      componentBoolProp: PropTypes.bool.isRequired,
+      componentStrProp: PropTypes.string.isRequired,
+    },
+
     render() {
       return (
         <div>
@@ -40,7 +45,7 @@ describe('createComponentStub :: app', function () {
         counter: 1,
       },
     });
-    wrapper = mount(<ComponentStub />);
+    wrapper = mount(<ComponentStub componentBoolProp componentStrProp="Hello world!" />);
   });
 
   afterEach(() => resetStubs(FakeComponent));
@@ -56,5 +61,11 @@ describe('createComponentStub :: app', function () {
   it('should be able to stub store state', () => {
     const counter = wrapper.find('.counter');
     expect(counter.text()).to.be.equal('1');
+  });
+
+  it('should be able to pass properties directly from wrapper (like prop="true")', () => {
+    const component = wrapper.find(TestComponent);
+    expect(component.props().componentBoolProp).to.equal(true);
+    expect(component.props().componentStrProp).to.equal('Hello world!');
   });
 });

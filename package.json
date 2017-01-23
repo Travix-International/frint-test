@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "frint": "^0.13.0",
+    "frint": "^0.14.0",
     "lodash": "^4.13.1",
     "react": "^0.14.8"
   },
