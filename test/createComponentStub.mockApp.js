@@ -1,16 +1,15 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { createComponent, mapToProps } from 'frint';
+import { createComponent, mapToProps, PropTypes } from 'frint';
 
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
 
 describe('createComponentStub :: app', function () {
   const TestComponent = createComponent({
-    renderExtraComponent() {
-      return (
-        <span className="extra-component">{this.props.componentStrProp}</span>
-      );
+    propTypes: {
+      componentBoolProp: PropTypes.bool.isRequired,
+      componentStrProp: PropTypes.string.isRequired,
     },
 
     render() {
@@ -18,7 +17,6 @@ describe('createComponentStub :: app', function () {
         <div>
           <span>{this.props.message}</span>
           <span className="counter">{this.props.counter}</span>
-          {this.props.componentBoolProp && this.renderExtraComponent()}
         </div>
       );
     },
