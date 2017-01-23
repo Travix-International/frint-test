@@ -7,11 +7,18 @@ import resetStubs from '../src/resetStubs';
 
 describe('createComponentStub :: app', function () {
   const TestComponent = createComponent({
+    renderExtraComponent() {
+      return (
+        <span className="extra-component">{this.props.componentStrProp}</span>
+      );
+    },
+
     render() {
       return (
         <div>
           <span>{this.props.message}</span>
           <span className="counter">{this.props.counter}</span>
+          {this.props.componentBoolProp && this.renderExtraComponent()}
         </div>
       );
     },
@@ -40,7 +47,7 @@ describe('createComponentStub :: app', function () {
         counter: 1,
       },
     });
-    wrapper = mount(<ComponentStub />);
+    wrapper = mount(<ComponentStub componentBoolProp componentStrProp="Hello world!" />);
   });
 
   afterEach(() => resetStubs(FakeComponent));
@@ -56,5 +63,10 @@ describe('createComponentStub :: app', function () {
   it('should be able to stub store state', () => {
     const counter = wrapper.find('.counter');
     expect(counter.text()).to.be.equal('1');
+  });
+
+  it('should be able to pass properties directly from wrapper (like prop="true")', () => {
+    const component = wrapper.find('.extra-component');
+    expect(component.text()).to.be.equal('Hello world!');
   });
 });

@@ -93,8 +93,6 @@ export default function createComponentStub(Component, opts) {
   Component.stubMapAppToProps(appFn => mapAppToProps(app, appFn));
   _.each(options.dispatch, (value, key) => Component.stubMapDispatchToProps(key, value));
 
-  const AppComponent = app.render();
-
   const WrapperComponent = React.createClass({
     componentWillMount() {
       app.beforeMount();
@@ -109,6 +107,8 @@ export default function createComponentStub(Component, opts) {
     },
 
     render() {
+      const AppComponent = app.render(this.props);
+
       return <AppComponent />;
     },
   });
