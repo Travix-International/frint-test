@@ -12,9 +12,6 @@ In your test setup:
 
 ```js
 import { installTestStubs } from 'frint-test';
-import React from 'react';
-
-global.React = React;
 installTestStubs();
 ```
 

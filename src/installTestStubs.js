@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import { createComponent, h } from 'frint';
 
 let testStubsAlreadyInstalled = false;
 
@@ -42,7 +42,7 @@ export default function installTestStubs() {
     const options = Object.assign({}, defaultOptions, opts, overrides);
     const stubsCleanUp = [];
 
-    return Component => React.createClass({
+    return Component => createComponent({
       displayName: `Fake${Component.name}`,
       statics: {
         stubMapDispatchToProps(key, fnStub) {

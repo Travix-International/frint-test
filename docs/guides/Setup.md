@@ -28,14 +28,8 @@ If you don't already have a setup file that you use with mocha, create it now on
 
 ```js
 import { installTestStubs } from 'frint';
-import { React } from 'react';
-
-global.React = React;
-
 installTestStubs();
 ```
-
-In your test setup, you need to make sure that React is put in the global scope, because internally frint uses the version of React that is on the global scope and does not bring its own version of React.
 
 Alternatively, if you already have a set up file, you only need to make sure you import and call the `installTestStubs` from 'frint-test'.
 

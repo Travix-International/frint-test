@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { mount } from 'enzyme';
 import { mock } from 'sinon';
-import { createComponent, mapToProps } from 'frint';
+import { createComponent, mapToProps, h } from 'frint';
 
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';

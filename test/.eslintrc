@@ -4,10 +4,9 @@
     "afterEach": true,
     "before": true,
     "beforeEach": true,
-    "describe": true,  
+    "describe": true,
     "expect": true,
-    "it": true,
-    "React": true,
+    "it": true
   },
   "rules": {
     "func-names": 0,

@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-import { createComponent, mapToProps } from 'frint';
+import { createComponent, mapToProps, h } from 'frint';
 
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';
