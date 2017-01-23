@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { createComponent, mapToProps, PropTypes } from 'frint';
+import { createComponent, mapToProps, PropTypes, h } from 'frint';
 
 import createComponentStub from '../src/createComponentStub';
 import resetStubs from '../src/resetStubs';

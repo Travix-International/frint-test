@@ -1,6 +1,6 @@
+/* eslint-disable */
 import _ from 'lodash';
-import { createApp } from 'frint';
-import React from 'react';
+import { createApp, createComponent, h } from 'frint';
 
 import { ensureTestStubsInstalled } from './installTestStubs';
 
@@ -93,19 +93,7 @@ export default function createComponentStub(Component, opts) {
   Component.stubMapAppToProps(appFn => mapAppToProps(app, appFn));
   _.each(options.dispatch, (value, key) => Component.stubMapDispatchToProps(key, value));
 
-  const WrapperComponent = React.createClass({
-    componentWillMount() {
-      app.beforeMount();
-    },
-
-    componentDidMount() {
-      app.afterMount();
-    },
-
-    componentWillUnmount() {
-      app.beforeUnmount();
-    },
-
+  const WrapperComponent = createComponent({
     render() {
       const AppComponent = app.render(this.props);
 

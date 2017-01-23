@@ -5,5 +5,10 @@
     "travix/rules/es6",
     "travix/react",
     "travix/rules/best-practices",
-  ]
+  ],
+  "settings": {
+    "react": {
+      "pragma": "h"
+    }
+  }
 }

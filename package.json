@@ -46,9 +46,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "frint": "^0.14.0",
-    "lodash": "^4.13.1",
-    "react": "^0.14.8"
+    "lodash": "^4.13.1"
+  },
+  "peerDependencies": {
+    "frint": "^0.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -63,10 +64,12 @@
     "eslint-config-travix": "^2.3.1",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-react": "^6.4.1",
+    "frint": "^0.14.0",
     "gitbook-cli": "^2.3.0",
     "jsdom": "^9.4.2",
     "jsdom-global": "^2.0.0",
     "mocha": "^3.0.2",
+    "react": "^0.14.8",
     "react-addons-test-utils": "^0.14.8",
     "react-dom": "^0.14.8",
     "rimraf": "^2.5.4",

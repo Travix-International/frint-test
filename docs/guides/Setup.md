@@ -24,28 +24,31 @@ In order to use frint-test in your project, you need to make sure you invoke `in
 
 It is necessary that frint-test loads before frint, so it can replace frint functions with appropriate stubs.  By stubbing frint, in the first place, we can guarantee that your tests will be executed without the interference of third-party dependencies such as *React* or *Redux*.
 
-If you don't already have a setup file that you use with mocha, create it now on `./test/setup.js`:
+If you're using mocha, you can do it by simply loading frint-test register hook, for instance:
 
-```js
-import { installTestStubs } from 'frint';
-import { React } from 'react';
-
-global.React = React;
-
-installTestStubs();
+```
+--colors
+--compilers js:babel-register
+--require jsdom-global/register frint-test/register
+--recursive
 ```
 
-In your test setup, you need to make sure that React is put in the global scope, because internally frint uses the version of React that is on the global scope and does not bring its own version of React.
+Alternatively, you can also invoke `installTestStub` yourself. If you don't already have a setup file that you use with mocha, create it now on `./test/setup.js`:
 
-Alternatively, if you already have a set up file, you only need to make sure you import and call the `installTestStubs` from 'frint-test'.
-
-Now you need to make sure you have a `mocha.opts` file.  In case you are starting from scratch, create it now.  Your mocha.opts file may look like this:
+Assuming your `mocha.opts` file look somehow like that:
 
 ```
 --colors
 --compilers js:babel-register
 --require ./test/setup.js
 --recursive
+```
+
+Just make sure you have these lines in your `./test/setup.js` file.
+
+```js
+import { installTestStubs } from 'frint';
+installTestStubs();
 ```
 
 We suggest you have test script to use with npm.  Add the following line to your `package.json` file, in the scripts session:

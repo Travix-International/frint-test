@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { stub } from 'sinon';
-import { createComponent, mapToProps } from 'frint';
+import { createComponent, mapToProps, h } from 'frint';
+import React from 'react';
 
 import resetStubs from '../src/resetStubs';
 
