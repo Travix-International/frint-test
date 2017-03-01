@@ -35,6 +35,7 @@ export default function createComponentStub(Component, opts) {
 
   const createDefaultFakeApp = () => {
     const fakeAppOptions = {
+      isFrintCore: true,
       appId: 'fake_app',
       component: Component,
       enableLogger: false,
@@ -54,6 +55,20 @@ export default function createComponentStub(Component, opts) {
     const FakeApp = createApp(fakeAppOptions);
 
     class TestApp extends FakeApp {
+      // compatibility with frint next
+      get(name) {
+        if (name === 'rootApp' && this.options.isFrintCore) return this;
+
+        const result = super.get(name);
+        if (result == null) { // checks for either null or undefined
+          throw new Error(
+            `Attempt to use component '${name}' in test context, but no stubs have been provided.`
+          );
+        }
+
+        return result;
+      }
+
       getFactory(name) {
         if (!{}.hasOwnProperty.call(this.options.factories, name)) {
           throw new Error(
